@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all, light --default;
+}
+
+.link-active {
+  @apply font-bold;
+}
+
+body {
+  background: url('/assets/background.png') repeat;
+  background-color: #f9f9fb;
+  font-family: "Numans", sans-serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}

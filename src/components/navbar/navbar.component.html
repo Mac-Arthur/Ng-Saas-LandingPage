@@ -1,0 +1,51 @@
+
+  <!-- Centered rounded navbar -->
+  <nav class="navbar bg-neutral-50 rounded-2xl shadow px-4 max-w-7xl mx-auto sticky top-0 z-50 ">
+    
+    <!-- Navbar Start (Hamburger + Logo) -->
+    <div class="navbar-start flex items-center gap-1">
+      <!-- Hamburger Icon - Mobile -->
+      <button title="btn" class="btn btn-ghost lg:hidden" (click)="sidebarOpen = true">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Logo -->
+      <a class="text-xl font-bold">Easy<span class="text-teal-700">Pay</span></a>
+    </div>
+
+    <!-- Navbar Center (Desktop links only) -->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a routerLink="/home" routerLinkActive="link-active">Home</a></li>
+        <li><a>About</a></li>
+        <li><a>Features</a></li>
+        <li><a>Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Navbar End -->
+    <div class="navbar-end">
+      <button class="btn btn-success btn-sm rounded-xl">Get Started</button>
+    </div>
+  </nav>
+
+
+<!-- Sidebar for Mobile -->
+<aside
+  class="fixed top-0 left-0 h-full w-64 bg-base-100 shadow-lg z-50 transform transition-transform duration-300 lg:hidden"
+  [ngClass]="{ '-translate-x-full': !sidebarOpen, 'translate-x-0': sidebarOpen }"
+>
+  <div class="p-4 border-b flex items-center justify-between">
+    <h2 class="font-bold text-lg">Menu</h2>
+    <button class="btn btn-sm btn-ghost" (click)="sidebarOpen = false">✕</button>
+  </div>
+  <ul class="menu p-4">
+    <li><a routerLink="/home" routerLinkActive="link-active" (click)="sidebarOpen = false">Home</a></li>
+    <li><a (click)="sidebarOpen = false">About</a></li>
+    <li><a (click)="sidebarOpen = false">Features</a></li>
+    <li><a (click)="sidebarOpen = false">Services</a></li>
+  </ul>
+</aside>
